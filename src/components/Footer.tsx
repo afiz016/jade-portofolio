@@ -49,7 +49,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" id="footer">
       <p>Temukan saya</p>
       <div aria-label="Media sosial dan kontak" className="footer-socials" role="group">
         {socials.map(({ label, href, Icon, external }) => (

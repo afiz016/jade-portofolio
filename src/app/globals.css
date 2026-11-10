@@ -848,6 +848,7 @@ body {
   background: #302e2c;
   color: #ddd4c8;
   font-size: 0.85rem;
+  scroll-snap-align: end;
 }
 
 .footer-socials {

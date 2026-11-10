@@ -19,7 +19,7 @@ export default function Navbar() {
     setMenuOpen(false);
     document.getElementById(href.slice(1))?.scrollIntoView({
       behavior: "smooth",
-      block: "start",
+      block: href === "#footer" ? "end" : "start",
     });
   };
 
@@ -59,8 +59,16 @@ export default function Navbar() {
           ))}
         </div>
 
-        <Link href="#skills" className="nav-cta" onClick={() => navigateToSection("#skills")}>
-          My Skills
+        <Link
+          href="#footer"
+          className="nav-cta"
+          onClick={(event) => {
+            event.preventDefault();
+            window.history.pushState(null, "", "#footer");
+            navigateToSection("#footer");
+          }}
+        >
+          Hubungi
         </Link>
 
         <button
