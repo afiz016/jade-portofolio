@@ -15,6 +15,14 @@ const links = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const navigateToSection = (href: string) => {
+    setMenuOpen(false);
+    document.getElementById(href.slice(1))?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <motion.header
       className="site-header"
@@ -23,7 +31,12 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <nav className="navbar-nav" aria-label="Main navigation">
-        <Link href="#home" className="nav-logo font-script" aria-label="Afiz home">
+        <Link
+          href="#home"
+          className="nav-logo font-script"
+          aria-label="Afiz home"
+          onClick={() => navigateToSection("#home")}
+        >
           Afiz<span>.</span>
         </Link>
 
@@ -38,7 +51,7 @@ export default function Navbar() {
               <Link
                 href={item.href}
                 className="nav-link"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => navigateToSection(item.href)}
               >
                 {item.label}
               </Link>
@@ -46,7 +59,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <Link href="#skills" className="nav-cta">
+        <Link href="#skills" className="nav-cta" onClick={() => navigateToSection("#skills")}>
           My Skills
         </Link>
 

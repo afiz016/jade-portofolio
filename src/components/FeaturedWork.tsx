@@ -14,20 +14,14 @@ const projects = [
     href: "",
   },
   {
-    title: "Nama Proyek 2",
-    category: "Kategori proyek",
-    description: "Ganti teks ini dengan deskripsi singkat proyek kedua.",
-    details: "Tambahkan cerita singkat, tujuan, atau hasil dari proyek kedua.",
-    technologies: ["Teknologi 1", "Teknologi 2"],
-    href: "",
-  },
-  {
-    title: "Nama Proyek 3",
-    category: "Kategori proyek",
-    description: "Ganti teks ini dengan deskripsi singkat proyek ketiga.",
-    details: "Tambahkan cerita singkat, tujuan, atau hasil dari proyek ketiga.",
-    technologies: ["Teknologi 1", "Teknologi 2"],
-    href: "",
+    title: "SPK Aset Digital Production",
+    category: "Web App",
+    description:
+      "Aplikasi berbasis web untuk membantu mengambil keputusan investasi aset digital in-game.",
+    details:
+      "Sistem Pendukung Keputusan ini menggunakan metode TOPSIS untuk menilai aset berdasarkan harga beli, volume, rarity, sentimen komunitas, dan likuiditas.",
+    technologies: ["TOPSIS", "Sistem Pendukung Keputusan", "Aset Digital"],
+    href: "https://spk-aset-digital-production.up.railway.app",
   },
 ];
 
@@ -70,6 +64,32 @@ export default function FeaturedWork() {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
+              <div
+                aria-hidden="true"
+                className={`featured-project-art featured-project-art--${index + 1}`}
+              >
+                <div className="featured-project-art-window">
+                  <div className="featured-project-art-toolbar">
+                    <span />
+                    <span />
+                    <span />
+                    <span className="featured-project-art-label">
+                      SELECTED WORK
+                    </span>
+                  </div>
+                  <div className="featured-project-art-preview">
+                    <span className="featured-project-art-mark">
+                      {index === 0 ? "A." : index === 1 ? "✳" : "↗"}
+                    </span>
+                    <span className="featured-project-art-lines">
+                      <i />
+                      <i />
+                      <i />
+                    </span>
+                  </div>
+                </div>
+                <span className="featured-project-art-orbit" />
+              </div>
               <div className="featured-project-heading">
                 <span className="featured-project-number">
                   0{index + 1}

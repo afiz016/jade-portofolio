@@ -41,10 +41,10 @@ function WhatsAppIcon() {
 }
 
 const socials = [
-  { label: "Email", Icon: Mail },
-  { label: "WhatsApp", Icon: WhatsAppIcon },
-  { label: "LinkedIn", Icon: LinkedInIcon },
-  { label: "Instagram", Icon: SocialIcons.IG },
+  { label: "Email", href: "mailto:muhammadnurafiz2@gmail.com", Icon: Mail },
+  { label: "WhatsApp", href: "https://wa.me/6285802457090", Icon: WhatsAppIcon, external: true },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/muhammadnurafiz", Icon: LinkedInIcon, external: true },
+  { label: "Instagram", href: "https://www.instagram.com/nurafiz", Icon: SocialIcons.IG, external: true },
 ];
 
 export default function Footer() {
@@ -52,16 +52,18 @@ export default function Footer() {
     <footer className="site-footer">
       <p>Temukan saya</p>
       <div aria-label="Media sosial dan kontak" className="footer-socials" role="group">
-        {socials.map(({ label, Icon }) => (
-          <span
+        {socials.map(({ label, href, Icon, external }) => (
+          <a
             key={label}
             className="footer-social-icon"
-            role="img"
+            href={href}
             aria-label={label}
             title={label}
+            target={external ? "_blank" : undefined}
+            rel={external ? "noreferrer" : undefined}
           >
-            <Icon />
-          </span>
+            <span aria-hidden="true"><Icon /></span>
+          </a>
         ))}
       </div>
     </footer>
